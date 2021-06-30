@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庆祝中国共产党成立100周年</title>
+    <style>
+        html {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+                
+        /* 重置chrome浏览器默认滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            border-radius: 14px;
+            background-color: #fff;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 14px;
+            box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: rgba(0,0,0,.2);
+        }
+        h1 {
+            color: #333;
+            font-family: Helvetica;
+            margin: 0;
+            padding: 0;
+            font-size: 5rem;
+            position: relative;
+        }
+        h1::after {
+            content: attr(data-spotlight);
+            color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+            clip-path: ellipse(100px 100px at 0% 50%);
+            animation: spotlight 10s infinite;
+        }
+
+        @keyframes spotlight {
+            0% {
+                -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+                clip-path: ellipse(100px 100px at 0% 50%); 
+            }
+            50% {
+                -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+                clip-path: ellipse(100px 100px at 100% 50%);
+            }
+            100% {
+                -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+        }
+
+        .author {
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        #china {
+            transform-origin: center bottom;
+            animation: chinaRun 5s ease-in-out infinite;
+        }
+
+        @keyframes chinaRun {
+            0% {
+                transform: rotate(-10deg);
+            }
+            50% {
+                transform: rotate(10deg);
+            }
+            100% {
+                transform: rotate(-10deg);
+            }
+        }
+
+        #music {
+            width: 30px;
+            height: 30px;
+            background: url('./music.png');
+            background-size: cover;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            transform-origin: center;
+        }
+        #music.run {
+            animation: musicRun 2s linear infinite;
+        }
+        @keyframes musicRun {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .count {
+            color: #fff;
+        }
+
+        canvas {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+        @media (max-width: 1100px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            h1::after {
+                -webkit-clip-path: ellipse(20px 20px at 0% 50%);
+                clip-path: ellipse(20px 20px at 0% 50%);
+                animation: spotlight 10s infinite;
+            }
+            @keyframes spotlight {
+                0% {
+                    -webkit-clip-path: ellipse(20px 20px at 0% 50%);
+                    clip-path: ellipse(20px 20px at 0% 50%); 
+                }
+                50% {
+                    -webkit-clip-path: ellipse(20px 20px at 100% 50%);
+                    clip-path: ellipse(20px 20px at 100% 50%);
+                }
+                100% {
+                    -webkit-clip-path: ellipse(20px 20px at 0% 50%);
+                    clip-path: ellipse(20px 20px at 0% 50%);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg id="china" t="1625021665554" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="735" width="128" height="128"><path d="M512.288 96.128c214.688 80.512 344.96 337.824 233.376 546.336l-272.352-273.6 103.968-104.32-65.024-64.704c-35.872 35.136-92.896 42.624-131.36 27.136l-207.008 207.104 117.248 116.8 78.144-77.856 272.256 273.152c-133.248 73.184-317.92 50.112-454.208-91.456L121.28 720.512c19.776 27.392 36.352 52.224 56.96 73.056-1.824 2.176-7.456 6.816-7.584 6.944-3.456-0.576-7.552-1.92-11.2-1.92-35.136 0-63.488 30.56-63.488 65.696C96 899.392 124.64 928 159.744 928c35.136 0 65.184-28.864 65.184-64 0-4.096-0.928-7.84-1.6-11.68l10.112-9.984c156.704 105.696 328.448 118.848 513.216 8.288l76.32 76.576 104.448-103.04-76.8-77.6C1071.04 414.432 777.152 88.192 512.32 96.128z" fill="#FFED00" p-id="736"></path></svg>
+    <h1 data-spotlight='庆祝中国共产党成立100周年'>庆祝中国共产党成立100周年</h1>
+    
+    <div class="count">
+        <span>10</span>
+    </div>
+    
+    <div class="author">中国联通绵阳市分公司 尹磊</div>
+
+    <div id="music">
+        <audio src="./china.mp3" loop></audio>
+    </div>
+    <div id="fireSound">
+        <audio src="./boll.mp3" loop></audio>
+        <audio src="./boll.mp3" loop></audio>
+        <audio src="./boll.mp3" loop></audio>
+        <audio src="./boll.mp3" loop></audio>
+        <audio src="./boll.mp3" loop></audio>
+    </div>
+
+    <canvas></canvas>
+
+    <script>
+        window.onload = function() {
+            handleMusic();
+            handleCountDown();
+        }
+
+        function handleCountDown() {
+            let countNumber = document.querySelector('.count span');
+            let timer = setInterval(() => {
+                if(countNumber.innerHTML == 0) {
+                    clearInterval(timer);
+                    countNumber.innerHTML = '共100礼炮献给党';
+                    handleFires();
+                } else {
+                    countNumber.innerHTML = --countNumber.innerHTML;
+                }
+            }, 1000);
+        }
+
+        function handleMusic() {
+            let music = document.querySelector('#music');
+            let musicAudio = music.querySelector('audio');
+            let fireSoundAudios = document.querySelectorAll('#fireSound audio');
+            musicAudio.volume = 0.2;
+            music.addEventListener('click', function() {
+                if(musicAudio.paused) {
+                    this.className = 'run';
+                    musicAudio.play();
+                    for(let i = 0; i < fireSoundAudios.length; i++) {
+                        fireSoundAudios[i].play();
+                        fireSoundAudios[i].muted = true;
+                        fireSoundAudios[i].currentTime = i;
+                    }
+                } else {
+                    this.className = '';
+                    musicAudio.pause();
+                    for(let i = 0; i < fireSoundAudios.length; i++) {
+                        fireSoundAudios[i].pause();
+                    }
+                }
+            })
+        }
+
+        function handleFires() {
+            let fireSoundAudios = document.querySelectorAll('#fireSound audio');
+            let canvas = document.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            let balls = [];
+            let fires = [];
+            let timer = null;
+            let count = 0;
+            let ballAll = 100;
+            timer = setInterval(() => {
+                if(count == ballAll) {
+                    clearInterval(timer);
+                    count = 0;
+                    timer = null;
+                } else {
+                    count++;
+                    balls.push(
+                        new Ball({
+                            r: 3,
+                            x: Math.random() * width / 3 + width / 3,
+                            y: height,
+                            vx: Math.random() * 2 - 1,
+                            vy: -Math.random() * 2 - 9,
+                            end(){
+                                if(this.vy > 1) {
+                                    balls.splice(balls.indexOf(this), 1);
+                                    // 每个小烟花球
+                                    let size = Math.random() * 10;
+                                    /// 每个烟花球的爆炸小粒子(用sinx 和cosx)
+                                    for(let i = 0; i < 60; i++) {
+                                        let power = Math.random() * size;
+                                        let vx = Math.cos(i * 6 * Math.PI / 180) * power;
+                                        let vy = Math.sin(i * 6 * Math.PI / 180) * power;
+                                        fires.push(
+                                            new Fire({
+                                                r: 3,
+                                                x: this.x,
+                                                y: this.y,
+                                                vx: vx,
+                                                vy: vy,
+                                                g: 0.05,
+                                                end(){
+                                                    if(this.life < 10) {
+                                                        fires.splice(fires.indexOf(this), 1);
+                                                    }
+                                                }
+                                            })
+                                        );
+                                    }
+                                }
+                            }
+                        }),
+                    );
+                }
+            }, 500);
+            handleLoopBall();
+            function handleLoopBall() {
+                /// 叠加背景图层，产生尾巴效果
+                if(balls.length) {
+                    for(let i = 0; i < fireSoundAudios.length; i++) {
+                        fireSoundAudios[i].muted = false;
+                    }
+                    ctx.fillStyle = 'rgba(34, 34, 34, 0.2)';
+                    ctx.fillRect(0, 0, width, height);
+                } else {
+                    for(let i = 0; i < fireSoundAudios.length; i++) {
+                        fireSoundAudios[i].muted = true;
+                    }
+                    ctx.fillStyle = 'rgb(34, 34, 34)';
+                    ctx.fillRect(0, 0, width, height);
+                }
+                for(let i = 0; i < balls.length; i++) {
+                    balls[i].update();
+                    balls[i].render();
+                }
+                for(let i = 0; i < fires.length; i++) {
+                    fires[i].update();
+                    fires[i].render();
+                }
+                requestAnimationFrame(handleLoopBall);
+            }
+            class Ball {
+                constructor(options){
+                    this.settings = Object.assign({
+                        color: 'yellow',
+                        r: 5,
+                        g: 0.1,
+                        end(){},
+                    }, options);
+                    for(let attr in this.settings) {
+                        this[attr] = this.settings[attr];
+                    }
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += this.g;
+                }
+                render() {
+                    ctx.beginPath();
+                    ctx.fillStyle = this.color;
+                    ctx.arc(this.x, this.y, this.r, 0, 360 * Math.PI / 180);
+                    ctx.closePath();
+                    ctx.fill();
+                    this.end();
+                }
+            }
+            class Fire {
+                constructor(options){
+                    this.settings = Object.assign({
+                        color: 'yellow',
+                        r: 5,
+                        g: 0.1,
+                        fs: 0.95,
+                        life: 100,
+                        end(){},
+                    }, options);
+                    for(let attr in this.settings) {
+                        this[attr] = this.settings[attr];
+                    }
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.vy += this.g;
+                    this.vx *= this.fs;
+                    this.vy *= this.fs;
+                    if(this.life >0 && this.life < 300) {
+                        this.life--;
+                    }
+                }
+                render() {
+                    ctx.beginPath();
+                    ctx.fillStyle = this.color;
+                    ctx.arc(this.x, this.y, this.r * Math.min(this.life, 100) / 100, 0, 360 * Math.PI / 180);
+                    ctx.closePath();
+                    ctx.fill();
+                    this.end();
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
